@@ -6,5 +6,5 @@ This repo is for learning java fundamentals
 
 | Title              | Link                                   |
 |--------------------|----------------------------------------|
-| Lab 01 Basic             | [basic.md](./basics/)|
+| Lab 01 Basic             | [basic.md](./basics/Basic.md)|
 
