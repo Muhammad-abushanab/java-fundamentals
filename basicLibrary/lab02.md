@@ -16,3 +16,8 @@ you will test all the function that's implemented on the project check if they a
 - `calculatingAverage (int [] array)` that calculates the average of an array
 
 - `arrayOfArrays (int[][] multiDimArray)`  calculate the average value for each array and return the array with the lowest average.
+
+
+
+Link --> [code](./lib/src/main/java/basiclibrary/Library.java)
+Link --> [Test](./lib/src/test/java/basiclibrary/LibraryTest.java)
