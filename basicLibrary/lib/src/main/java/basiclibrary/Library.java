@@ -9,32 +9,23 @@ import java.util.List;
 import java.util.Random;
 
 public class Library {
-    public static int[] roll(int number ) {
+    public static int[] roll(int number) {
         if (number <= 0) {
             return new int[0];
-        }
-        else {
+        } else {
             Random rand = new Random();
             int[] array = new int[number];
-            for (int i = 0; i < number - 1; i++) {
-                array[i] = rand.nextInt(7);
-
+            for (int i = 0; i < number; i++) {
+                array[i] = rand.nextInt(6) + 1;
             }
-            printArray(array);
+            System.out.println(Arrays.toString(array));
             return array;
         }
     }
-    public static void printArray(int[] array) {
-        System.out.print("[");
-        for (int numberFromArray : array) {
-            System.out.print(numberFromArray + ",");
-        }
-        System.out.println("]");
-    }
+
+
     public static boolean findDuplicates(int[] arr) {
         Arrays.sort(arr);
-
-        ArrayList<Integer> duplicates = new ArrayList<>();
         for (int i = 0; i < arr.length - 1; i++) {
             if (arr[i] == arr[i + 1]) {
                 return true;
@@ -44,27 +35,27 @@ public class Library {
         return false;
     }
 
-    public static double caluculateAverage(int [] array) {
-        double sum =0;
-        for (int numberFromArray: array
-             ) {
-            sum+=numberFromArray;
+    public static double caluculateAverage(int[] array) {
+        double sum = 0;
+        for (int numberFromArray : array) {
+            sum += numberFromArray;
         }
-        return sum/array.length;
+        return sum / array.length;
     }
 
     public static int[] arrayOfArrays(int[][] multiDimArray) {
-        double [] avgs = new double[multiDimArray.length];
-        for (int i = 0 ; i <multiDimArray.length;i++) {
+        double[] avgs = new double[multiDimArray.length];
+        for (int i = 0; i < multiDimArray.length; i++) {
             avgs[i] = caluculateAverage(multiDimArray[i]);
         }
         return multiDimArray[findLowestAverageIndex(avgs)];
     }
-    public static int findLowestAverageIndex(double [] avgs){
-        double average = 1000;
+
+    public static int findLowestAverageIndex(double[] avgs) {
+        double average = avgs[0];
         int low = 0;
-        for (int i = 0; i < avgs.length ; i++) {
-            if(avgs[i] < average) {
+        for (int i = 0; i < avgs.length; i++) {
+            if (avgs[i] < average) {
                 average = avgs[i];
                 low = i;
             }

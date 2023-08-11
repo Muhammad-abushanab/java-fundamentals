@@ -14,6 +14,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
     Library sut = new Library();
+    @Test void rollNumbersCheck_IfNotInRange_1To6_ReturnFalse() {
+        int [] rolls = sut.roll(4);
+        for (int roll : rolls) {
+            assertFalse(roll < 1 || roll > 6);
+        }
+    }
+
     @Test void rollDiceindexTest() {
         int index = sut.roll(4).length;
         Assertions.assertEquals(4,index);
