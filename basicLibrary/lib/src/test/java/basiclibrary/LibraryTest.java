@@ -58,7 +58,7 @@ class LibraryTest {
     @Test void calculateAverage_WithOnlyZeros_ReturnZero() {
         Assertions.assertEquals(0,sut.caluculateAverage(new int[] {0,0,0,0}));
     }
-    @Test void calculateAverage_WithNoElemntsInArray_ReturnNaN() {
+    @Test void calculateAverage_WithNoElementsInArray_ReturnNaN() {
         Assertions.assertEquals(Double.NaN,sut.caluculateAverage(new int[] {}));
     }
     @Test void calculateAverage_WithSingleElement_ReturnAverage() {
@@ -73,4 +73,61 @@ class LibraryTest {
         });
         Assertions.assertArrayEquals(new int[] {55, 54, 60, 53, 59, 57, 61}, actual);
     }
+
+    @Test
+     void testWeatherData() {
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+
+        String expectedOutput = "[High: 72\n, Low: 51\n, Never saw temperature: 63\n, Never saw temperature: 67\n, Never saw temperature: 68\n, Never saw temperature: 69\n]";
+        String actualOutput = sut.weatherData(weeklyMonthTemperatures);
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+    @Test
+    void weatherData_With_EmptyArray_Return_MaxAndMin_value_of_INTEGER() {
+        int[][] emptyData = {};
+        String expectedEmptyOutput = "[High: -2147483648\n, Low: 2147483647\n]";
+        assertEquals(expectedEmptyOutput, sut.weatherData(emptyData));
+    }
+    @Test
+    void weatherData_With_singleValue_Return_LowAndHigh_With_theSameValue(){
+        int[][] singleValueData = {{10}};
+        String expectedOutput = "[High: 10\n, Low: 10\n]";
+        assertEquals(expectedOutput, sut.weatherData(singleValueData));
+    }
+    @Test
+     void testTally(){
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+        String winner = Library.tally(votes);
+        Assertions.assertEquals("Bush",winner);
+    }
+    @Test void sendEmptyList_Tally_Return() {
+        List<String> votes = new ArrayList<>();
+        String winner = Library.tally(votes);
+        Assertions.assertEquals("",winner);
+    }
+    @Test void onlyOneCandidate_ReturnWinner() {
+        List<String> votes = new ArrayList<>();
+        votes.add("Mohammad");
+        votes.add("Mohammad");
+        votes.add("Mohammad");
+        votes.add("Mohammad");
+        String winner = Library.tally(votes);
+        Assertions.assertEquals("Mohammad",winner);
+    }
 }
+
