@@ -3,10 +3,7 @@
  */
 package basiclibrary;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Library {
     public static int[] roll(int number) {
@@ -61,5 +58,42 @@ public class Library {
             }
         }
         return low;
+    }
+    public static String weatherData(int[][] monthTemp){
+        HashSet<Integer> uniqueDataTemp = new HashSet<>();
+
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        for (int [] weekTemp: monthTemp) {
+            for (int dayTemp: weekTemp) {
+                min = Math.min(min, dayTemp);
+                max = Math.max(max, dayTemp);
+                uniqueDataTemp.add(dayTemp);
+            }
+        }
+        ArrayList<String> result = new ArrayList<>();
+        result.add("High: " + max +"\n");
+        result.add("Low: " + min +"\n");
+        for (int i = min; i <= max ; i++) {
+            if(!uniqueDataTemp.contains(i)){
+                result.add("Never saw temperature: " + i+"\n");
+            }
+        }
+        return result.toString();
+    }
+    public static String tally(List<String> votes) {
+        HashMap<String,Integer> countVotes = new HashMap<>();
+        for (String candidateName : votes) {
+            countVotes.put(candidateName,countVotes.getOrDefault(candidateName,0)+1);
+        }
+        String winner = "";
+        int max = 0;
+        for (Map.Entry<String,Integer> entry: countVotes.entrySet()) {
+            if (entry.getValue() > max) {
+                winner = entry.getKey();
+                max = entry.getValue();
+            }
+        }
+        return winner;
     }
 }

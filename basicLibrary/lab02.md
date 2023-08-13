@@ -16,6 +16,9 @@ you will test all the function that's implemented on the project check if they a
 - `calculatingAverage (int [] array)` that calculates the average of an array
 
 - `arrayOfArrays (int[][] multiDimArray)`  calculate the average value for each array and return the array with the lowest average.
+## What's new
+-  `weatherData(int[][] monthTemp)` return the highest temperature of the month
+- `tally(List<String> votes)` return the winner based on the votes.
 
 
 
