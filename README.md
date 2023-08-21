@@ -9,5 +9,5 @@ This repo is for learning java fundamentals
 |  Basic             | [basic.md](./basics/Basic.md)|
 |  BasicLibrary             | [basicLibrary.md](./basicLibrary/lab02.md)|
 |  Linter             | [linter.md](./linter/READme.md)|
-|  Inheritance             | [Inheritance.md](./linter/READme.md)|
+|  Inheritance             | [Inheritance.md](./inheritance/inheritance.md)|
 
