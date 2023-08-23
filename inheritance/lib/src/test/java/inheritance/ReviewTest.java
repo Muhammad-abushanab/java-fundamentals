@@ -33,4 +33,23 @@ public class ReviewTest {
         Review rev = new Review(5, "Mohammad", "High Rate Food", res);
         assertEquals("Review\nAuthor : Mohammad\nbody : High Rate Food\nStars : 5\n",rev.toString());
     }
+    @Test
+    void review_TheaterWithMovieComment_ReturnReviewWithMovie(){
+        Theater th = new Theater("Taj");
+        Review rev = new Review(5,"Mohammad","Amazing Theater",th,"Interstellar");
+        assertEquals("Review\nAuthor : Mohammad\nbody : Amazing Theater\nStars : 5\nMovie : Interstellar",rev.toString());
+    }
+    @Test
+    void review_TheaterWithNoMovieComment_ReturnReviewWithoutMovieComment(){
+        Theater th = new Theater("Taj");
+        Review rev = new Review(5,"Mohammad","Amazing Theater",th);
+        assertEquals("Review\nAuthor : Mohammad\nbody : Amazing Theater\nStars : 5\n",rev.toString());
+    }
+
+    @Test
+    void review_Shop_ReturnReview(){
+        Shop shop = new Shop("City Center","Computer Hardware And More",45);
+        Review rev = new Review(2,"Mohammad","Best Computer Hardware",shop);
+        assertEquals("Review\nAuthor : Mohammad\nbody : Best Computer Hardware\nStars : 2\n",rev.toString());
+    }
 }
