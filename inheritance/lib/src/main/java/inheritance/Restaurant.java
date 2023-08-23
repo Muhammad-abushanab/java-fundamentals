@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Restaurant {
+public class Restaurant implements AddReview {
     private String name;
     private double rate;
     private int price;
@@ -34,12 +34,15 @@ public class Restaurant {
         return this.reviews;
     }
 
+
+    @Override
     public void addReview(Review review) {
         if (!reviews.contains(review)) {
             reviews.add(review);
             updateAverageStars();
         }
     }
+
 
     private void updateAverageStars() {
         DecimalFormat df = new DecimalFormat("0.0");
