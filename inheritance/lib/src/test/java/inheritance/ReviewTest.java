@@ -9,7 +9,7 @@ public class ReviewTest {
 
     @Test
     void ConstructorParameterValidation_ReturnTrueOnEachProperty() {
-        Review rev = new Review(5, "Mohammad", "High Rate Food", res);
+        Review rev = new Review.ReviewBuilder("High Rate Food", "Mohammad",5 ).build();
         assertEquals(5, rev.getStars());
         assertEquals("Mohammad", rev.getAuthor());
         assertEquals("High Rate Food", rev.getBody());

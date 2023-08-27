@@ -14,38 +14,38 @@ public class Review {
     private Theater theater;
     private String movie;
 
-    public Review(int stars, String author, String body, Restaurant res) {
-        this.author = author;
-        this.body = body;
-        this.stars = Math.max(0, Math.min(5, stars));
-        this.restaurant = res;
-        res.addReview(this);
-    }
-
-    public Review(int stars, String author, String body, Shop shop) {
-        this.author = author;
-        this.body = body;
-        this.stars = Math.max(0, Math.min(5, stars));
-        this.shop = shop;
-        shop.addReview(this);
-    }
-
-    public Review(int stars, String author, String body, Theater theater, String movie) {
-        this.author = author;
-        this.body = body;
-        this.stars = Math.max(0, Math.min(5, stars));
-        this.theater = theater;
-        this.movie = movie;
-        theater.addReview(this);
-    }
-
-    public Review(int stars, String author, String body, Theater theater) {
-        this.author = author;
-        this.body = body;
-        this.stars = Math.max(0, Math.min(5, stars));
-        this.theater = theater;
-        theater.addReview(this);
-    }
+//    public Review(int stars, String author, String body, Restaurant res) {
+//        this.author = author;
+//        this.body = body;
+//        this.stars = Math.max(0, Math.min(5, stars));
+//        this.restaurant = res;
+//        res.addReview(this);
+//    }
+//
+//    public Review(int stars, String author, String body, Shop shop) {
+//        this.author = author;
+//        this.body = body;
+//        this.stars = Math.max(0, Math.min(5, stars));
+//        this.shop = shop;
+//        shop.addReview(this);
+//    }
+//
+//    public Review(int stars, String author, String body, Theater theater, String movie) {
+//        this.author = author;
+//        this.body = body;
+//        this.stars = Math.max(0, Math.min(5, stars));
+//        this.theater = theater;
+//        this.movie = movie;
+//        theater.addReview(this);
+//    }
+//
+//    public Review(int stars, String author, String body, Theater theater) {
+//        this.author = author;
+//        this.body = body;
+//        this.stars = Math.max(0, Math.min(5, stars));
+//        this.theater = theater;
+//        theater.addReview(this);
+//    }
 
     private Review(ReviewBuilder reviewBuilder) {
         this.movie =reviewBuilder.movie;
@@ -59,7 +59,7 @@ public class Review {
             theater.addReview(this);
         } else if (reviewBuilder.shop != null) {
             shop.addReview(this);
-        } else {
+        } else if (reviewBuilder.restaurant != null){
             restaurant.addReview(this);
         }
     }
