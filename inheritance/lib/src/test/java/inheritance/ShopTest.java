@@ -15,7 +15,8 @@ public class ShopTest {
     @Test
     void Shop_AddReview_ReturnToStringWithReview() {
         Shop shop = new Shop("Zara", "Clothes Market", 50);
-        Review rev = new Review(5, "Mohammad", "Amazing quality", shop);
+//        Review rev = new Review(5, "Mohammad", "Amazing quality", shop);
+        Review rev = new Review.ReviewBuilder("Amazing quality","Mohammad",5).setShop(shop).build();
         String expected = "Shop\nName : Zara\nDescription : Clothes Market\nDollars : 50\nReview : [Review\nAuthor : Mohammad\nbody : Amazing quality\nStars : 5\n]";
         assertEquals(expected, shop.toString());
     }
