@@ -11,7 +11,8 @@ public class TheaterTest {
     @Test
     void theater_ToString_ReturnStringInRightOrder() {
         Theater theater = new Theater("Taj");
-        Review rev = new Review(2, "Mohammad", "Great", theater);
+//        Review rev = new Review(2, "Mohammad", "Great", theater);
+        Review rev = new Review.ReviewBuilder("Great","Mohammad",2).setTheater(theater).build();
         String movie = "London has fallen";
         theater.addMovie(movie);
         assertEquals("Theater\nName : Taj\nMovies : [London has fallen]\nReviews : [Review\nAuthor : Mohammad\nbody : Great\nStars : 2\n]", theater.toString());
@@ -20,7 +21,8 @@ public class TheaterTest {
     @Test
     void theater_ToStringWithMovieReview_ReturnStringInRightOrder() {
         Theater theater = new Theater("Taj");
-        Review rev = new Review(2, "Mohammad", "Great", theater, "Amazing spider Man");
+//        Review rev = new Review(2, "Mohammad", "Great", theater, "Amazing spider Man");
+        Review rev = new Review.ReviewBuilder("Great","Mohammad",2).setMovie("Amazing spider Man").setTheater(theater).build();
         String movie = "London has fallen";
         theater.addMovie(movie);
         assertEquals("Theater\nName : Taj\nMovies : [London has fallen]\nReviews : [Review\nAuthor : Mohammad\nbody : Great\nStars : 2\nMovie : Amazing spider Man]", theater.toString());
@@ -29,8 +31,10 @@ public class TheaterTest {
     @Test
     void theater_ToStringWith_DifferentReviews_ReturnStringInRightOrder() {
         Theater theater = new Theater("Taj");
-        Review rev = new Review(2, "Mohammad", "Great", theater, "Amazing spider Man");
-        Review rev2 = new Review(5, "ASAC", "Amazing Theater", theater);
+//        Review rev = new Review(2, "Mohammad", "Great", theater, "Amazing spider Man");
+//        Review rev2 = new Review(5, "ASAC", "Amazing Theater", theater);
+        Review rev = new Review.ReviewBuilder("Great","Mohammad",2).setMovie("Amazing spider Man").setTheater(theater).build();
+        Review rev2 = new Review.ReviewBuilder("Amazing Theater","ASAC",5).setTheater(theater).build();
         String movie = "London has fallen";
         theater.addMovie(movie);
         assertEquals("Theater\nName : Taj\nMovies : [London has fallen]\nReviews : [Review\nAuthor : Mohammad\nbody : Great\nStars : 2\nMovie : Amazing spider Man, Review\nAuthor : ASAC\nbody : Amazing Theater\nStars : 5\n]", theater.toString());
